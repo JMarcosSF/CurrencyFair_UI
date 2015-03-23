@@ -9,11 +9,11 @@
 
 		$scope.$on('$viewContentLoaded', function(){
 			//TODO CALL skybabble HERE TO LOAD MAP!!!!
-//			$http.get('testCountryMessageCount.json').
-			$http.get('localhost:8080/messages/countries/messages/count').
+			$http.get('testCountryMessageCount.json').
+//			$http.get('localhost:8080/messages/countries/messages/count').
 		    	success(function(data, status, headers, config) {
 		      	$scope.posts = data;
-		      	alert(data);
+//		      	alert(data);
 		    }).
 		    error(function(data, status, headers, config) {
 		      alert("FAILED");
