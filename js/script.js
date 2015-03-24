@@ -26,8 +26,21 @@
 		
 	});
 
-	myApp.controller('aboutController', function($scope) {
+	myApp.controller('aboutController', function($scope, $http) {
          $scope.message = "About Page... Hello World!!! ";
+         $scope.example = {
+         	value: 1
+         };
+         $scope.getUserMessages = function () {
+          $http.get('http://localhost:8080/messages/users/' + $scope.example.value).
+		    	success(function(data, status, headers, config) {
+		    		$scope.userMessages = data;
+		    		console.log($scope.userMessages);
+		    }).
+		    error(function(data, status, headers, config) {
+		      console.log(data);
+		    });
+        };
     });
 
 	myApp.controller('contactController', function($scope) {
