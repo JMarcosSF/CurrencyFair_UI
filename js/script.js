@@ -17,6 +17,13 @@
 		    	success(function(data, status, headers, config) {
 		    	var arr = data;
 		      	drawRegionsMap(arr);
+		      	var totalMsg = 0;
+		      	// Offsetting because index 0 is column string data
+		      	for(i = 1; i < arr.length; i++) {
+		      		var item = arr[i];
+		      		totalMsg = totalMsg + item[1];
+		      	}
+		      	$scope.message_count = totalMsg;
 		    }).
 		    error(function(data, status, headers, config) {
 		      console.log(data);
